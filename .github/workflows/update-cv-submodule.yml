@@ -8,6 +8,8 @@ on:
 jobs:
   update-submodule:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write  # Add this!
     steps:
       - name: Checkout website repo
         uses: actions/checkout@v3
