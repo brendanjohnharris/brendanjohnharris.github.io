@@ -344,6 +344,8 @@ main {
   letter-spacing: -0.005em;
   margin: 0 0 0.35rem;
   text-wrap: balance;
+  font-weight: 400;
+  font-style: italic;
 }
 .pub .title a { border: none; }
 .pub .title a:hover { color: var(--accent); }
