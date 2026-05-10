@@ -1,6 +1,6 @@
 # Per-DOI overrides for fetch_publications.py.
 # Code links come from CurriculumVitae/theBibliography.bib (url = {github.com/...}); not here.
-# Use this file for: skip (drop entry), featured (homepage), pdf (manual link).
+# Use this file for: skip (drop entry), featured (homepage), pdf, image (homepage card).
 
 "10.1007/s10827-022-00841-9":
   skip: true  # CNS 2022 conference proceedings supplement (not a paper)
@@ -9,5 +9,7 @@
 
 "10.1103/physrevx.14.031021":
   featured: true
+  image: img/criticality.webp
 "10.1038/s41467-026-68893-4":
   featured: true
+  image: img/spatiotemporal_motifs.webp

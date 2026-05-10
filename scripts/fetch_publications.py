@@ -203,6 +203,8 @@ def main() -> int:
             entry["code"] = bib_code[doi]
         if "pdf" in ov:
             entry["pdf"] = ov["pdf"]
+        if "image" in ov:
+            entry["image"] = ov["image"]
         entries.append(entry)
 
     entries.sort(key=lambda e: (e["year"] or "0000", e["title"]), reverse=True)

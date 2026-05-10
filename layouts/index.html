@@ -29,18 +29,20 @@
     <div class="lbl">Selected work</div>
     <div class="pub-list">
       {{ range first 3 $featured }}
+      {{ $p := . }}
       <article class="pub featured-pub">
-        <div class="y">{{ .year }}</div>
+        <div class="y">{{ $p.year }}</div>
         <div class="body">
-          <h3 class="title"><a href="{{ .url }}" rel="noreferrer">{{ .title }}</a></h3>
-          <div class="authors">{{ .authors | replaceRE $me (printf "<b>%s</b>" $me) | safeHTML }}</div>
-          <div class="venue">{{ .venue }}</div>
+          <h3 class="title"><a href="{{ $p.url }}" rel="noreferrer">{{ $p.title }}</a></h3>
+          <div class="authors">{{ $p.authors | replaceRE $me (printf "<b>%s</b>" $me) | safeHTML }}</div>
+          <div class="venue">{{ $p.venue }}</div>
         </div>
+        {{ with $p.image }}<a class="featured-img" href="{{ $p.url }}" rel="noreferrer"><img src="{{ . | relURL }}" alt="" loading="lazy" /></a>{{ end }}
         <div class="tags tags-stack">
-          {{ if eq .tag "preprint" }}<span class="tag t-preprint">preprint</span>{{ end }}
-          {{ with .doi }}<a class="tag t-doi" href="https://doi.org/{{ . }}" rel="noreferrer">doi</a>{{ end }}
-          {{ with .pdf }}<a class="tag t-pdf" href="{{ . }}" rel="noreferrer">pdf</a>{{ end }}
-          {{ with .code }}<a class="tag t-code" href="{{ . }}" rel="noreferrer">code</a>{{ end }}
+          {{ if eq $p.tag "preprint" }}<span class="tag t-preprint">preprint</span>{{ end }}
+          {{ with $p.doi }}<a class="tag t-doi" href="https://doi.org/{{ . }}" rel="noreferrer">doi</a>{{ end }}
+          {{ with $p.pdf }}<a class="tag t-pdf" href="{{ . }}" rel="noreferrer">pdf</a>{{ end }}
+          {{ with $p.code }}<a class="tag t-code" href="{{ . }}" rel="noreferrer">code</a>{{ end }}
         </div>
       </article>
       {{ end }}
