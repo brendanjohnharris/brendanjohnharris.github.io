@@ -14,6 +14,9 @@ jobs:
           submodules: recursive   # CurriculumVitae lives under static/cv
           fetch-depth: 0          # full history for Hugo's enableGitInfo
 
+      - name: Update CurriculumVitae submodule to latest
+        run: git submodule update --remote --merge CurriculumVitae
+
       - name: Sync palette from Fathom.jl
         run: |
           curl -fsSL https://raw.githubusercontent.com/brendanjohnharris/Fathom.jl/main/test/colors.yaml \

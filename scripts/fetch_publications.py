@@ -31,7 +31,7 @@ HEADERS = {"User-Agent": f"brendanjohnharris.github.io (mailto:{CONTACT})"}
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "data" / "publications.yaml"
 OVERRIDES_FILE = ROOT / "data" / "publications_overrides.yaml"
-BIB_FILE = ROOT.parent / "CurriculumVitae" / "theBibliography.bib"
+BIB_FILE = ROOT / "CurriculumVitae" / "theBibliography.bib"
 
 
 def parse_bib_code_urls(path: Path) -> dict[str, str]:

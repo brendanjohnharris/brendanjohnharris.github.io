@@ -30,7 +30,7 @@ enableGitInfo = true
     source = "static"
     target = "static"
   [[module.mounts]]
-    source = "../CurriculumVitae/main.pdf"
+    source = "CurriculumVitae/main.pdf"
     target = "static/cv/main.pdf"
 
 [[menu.main]]
