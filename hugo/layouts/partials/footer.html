@@ -1,0 +1,6 @@
+{{- $lastmod := or .Lastmod .Site.Lastmod -}}
+<footer class="footnote">
+  <span>© {{ now.Format "2006" }} {{ .Site.Data.identity.name }}</span>
+  {{ with $lastmod }}<span>Last updated <time datetime="{{ .Format "2006-01-02" }}">{{ .Format "2 Jan 2006" }}</time></span>{{ end }}
+  <span>Set in Source Serif &amp; JetBrains Mono · palette from <a href="https://github.com/brendanjohnharris/Fathom.jl/blob/main/test/colors.yaml" rel="noreferrer" style="border:none;color:inherit;text-decoration:underline;text-decoration-color:var(--rule)">Fathom.jl/colors.yaml</a></span>
+</footer>

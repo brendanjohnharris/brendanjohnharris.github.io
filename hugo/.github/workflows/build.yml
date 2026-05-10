@@ -1,0 +1,45 @@
+name: Build & deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive   # CurriculumVitae lives under static/cv
+          fetch-depth: 0          # full history for Hugo's enableGitInfo
+
+      - name: Sync palette from Fathom.jl
+        run: |
+          curl -fsSL https://raw.githubusercontent.com/brendanjohnharris/Fathom.jl/main/test/colors.yaml \
+            -o data/colors.yaml
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Fetch publications from ORCID
+        run: |
+          pip install requests pyyaml
+          python scripts/fetch_publications.py
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: latest
+          extended: true
+
+      - name: Build
+        run: hugo --minify
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        if: github.ref == 'refs/heads/main'
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public

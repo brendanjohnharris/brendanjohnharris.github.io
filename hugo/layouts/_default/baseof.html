@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="{{ .Site.LanguageCode | default "en" }}">
+<head>
+  {{ partial "head.html" . }}
+</head>
+<body>
+  <div class="site">
+    {{ partial "sidebar.html" . }}
+    <main data-screen-label="{{ with .Params.menu_num }}{{ . }} {{ end }}{{ .Title }}">
+      {{ block "main" . }}{{ end }}
+      {{ partial "footer.html" . }}
+    </main>
+  </div>
+</body>
+</html>

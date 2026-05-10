@@ -1,0 +1,41 @@
+- name: Fathom.jl
+  role: Author
+  lang: Julia
+  blurb: A framework for parametric analysis of dynamical systems — sweeping, simulating, and characterizing trajectories of stochastic and deterministic models.
+  url: https://github.com/brendanjohnharris/Fathom.jl
+  glyph: fathom
+
+- name: TimeseriesTools.jl
+  role: Author
+  lang: Julia
+  blurb: Type system and utilities for working with time series of arbitrary dimensionality, units, and metadata in Julia.
+  url: https://github.com/brendanjohnharris/TimeseriesTools.jl
+  glyph: timeseries
+
+- name: Catch22.jl
+  role: Maintainer
+  lang: Julia
+  blurb: Julia port of the canonical 22 time-series features from the catch22 set, for fast feature-based analysis.
+  url: https://github.com/brendanjohnharris/Catch22.jl
+  glyph: catch22
+
+- name: AllenNeuropixelsBase.jl
+  role: Author
+  lang: Julia
+  blurb: A Julia interface to the Allen Institute's Neuropixels Visual Coding dataset — load LFP, spikes, and stimulus tables in idiomatic Julia.
+  url: https://github.com/brendanjohnharris/AllenNeuropixelsBase.jl
+  glyph: allen
+
+- name: DimensionalData extensions
+  role: Contributor
+  lang: Julia
+  blurb: Contributions and helpers around DimensionalData.jl for spatiotemporal neural data analysis.
+  url: https://github.com/brendanjohnharris
+  glyph: dim
+
+- name: criticalslowingdown
+  role: Author
+  lang: MATLAB / Julia
+  blurb: "Reference code for tracking the distance to criticality in systems with unknown noise (Phys. Rev. X 14, 031021)."
+  url: https://github.com/brendanjohnharris/criticalslowingdown
+  glyph: critical

@@ -1,0 +1,21 @@
+{{ define "main" }}
+{{- $soft := .Site.Data.software -}}
+<div class="page-head">
+  <h1>Software</h1>
+  <div class="meta">{{ len $soft }} packages · primarily Julia</div>
+</div>
+<div class="soft-grid">
+  {{ range $soft }}
+  <a class="soft-card" href="{{ .url }}" target="_blank" rel="noopener noreferrer">
+    <div class="arrow">↗</div>
+    <div class="glyph">{{ partial "glyphs.html" .glyph }}</div>
+    <div class="name">{{ .name }}</div>
+    <div class="blurb">{{ .blurb }}</div>
+    <div class="foot">
+      <span class="role">{{ .role }}</span>
+      <span>{{ .lang }}</span>
+    </div>
+  </a>
+  {{ end }}
+</div>
+{{ end }}

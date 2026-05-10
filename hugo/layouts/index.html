@@ -1,0 +1,50 @@
+{{ define "main" }}
+{{- $id := .Site.Data.identity -}}
+{{- $featured := where .Site.Data.publications "featured" true -}}
+{{- $me := "Brendan Harris" -}}
+<div class="landing">
+  <section class="hero">
+    <div class="sub">{{ $id.role }} · {{ $id.affiliation | replaceRE "School of Physics, " "" }} · Sydney</div>
+    <div class="hero-row">
+      <div class="hero-text">
+        <h1>{{ index (split $id.name " ") 0 }} {{ delimit (after 1 (split $id.name " ")) " " }}</h1>
+        <p class="blurb">{{ $id.blurb | safeHTML }}</p>
+      </div>
+      <div class="hero-photo">
+        <img src="{{ "img/me.webp" | relURL }}" alt="{{ $id.name }}" loading="eager" />
+      </div>
+    </div>
+  </section>
+
+  <section class="interests">
+    {{ range $id.interests }}
+    <div class="interest" data-tint="{{ .tint }}">
+      <span class="glyph">{{ partial "interest-glyph.html" .glyph }}</span>
+      <h3>{{ .heading }}</h3>
+    </div>
+    {{ end }}
+  </section>
+
+  <section class="featured">
+    <div class="lbl">Selected work</div>
+    <div class="pub-list">
+      {{ range first 3 $featured }}
+      <article class="pub featured-pub">
+        <div class="y">{{ .year }}</div>
+        <div class="body">
+          <h3 class="title"><a href="{{ .url }}" rel="noreferrer">{{ .title }}</a></h3>
+          <div class="authors">{{ .authors | replaceRE $me (printf "<b>%s</b>" $me) | safeHTML }}</div>
+          <div class="venue">{{ .venue }}</div>
+        </div>
+        <div class="tags tags-stack">
+          {{ if eq .tag "preprint" }}<span class="tag t-preprint">preprint</span>{{ end }}
+          {{ with .doi }}<a class="tag t-doi" href="https://doi.org/{{ . }}" rel="noreferrer">doi</a>{{ end }}
+          {{ with .pdf }}<a class="tag t-pdf" href="{{ . }}" rel="noreferrer">pdf</a>{{ end }}
+          {{ with .code }}<a class="tag t-code" href="{{ . }}" rel="noreferrer">code</a>{{ end }}
+        </div>
+      </article>
+      {{ end }}
+    </div>
+  </section>
+</div>
+{{ end }}

@@ -1,0 +1,58 @@
+- doi: 10.1038/s41467-026-68893-4
+  title: Nested spatiotemporal theta–gamma waves organize hierarchical processing
+    across the mouse visual cortex
+  authors: Brendan Harris, Pulin Gong
+  venue: Nature Communications, vol. 17
+  year: '2026'
+  url: https://doi.org/10.1038/s41467-026-68893-4
+  tag: article
+  citations: 1
+  percentile: null
+  featured: true
+  code: https://github.com/brendanjohnharris/SpatiotemporalMotifs.jl
+- doi: 10.52294/001c.140433
+  title: Canonical time-series features for characterizing biologically informative
+    dynamical patterns in fMRI
+  authors: Imran Alam, Brendan Harris, Patrick Cahill, Oliver Cliﬀ, Marija Markicevic,
+    Valerio Zerbi, Ben D. Fulcher
+  venue: Aperture Neuro, vol. 5
+  year: '2025'
+  url: https://doi.org/10.52294/001c.140433
+  tag: article
+  citations: 0
+  percentile: null
+  featured: false
+  code: https://github.com/DynamicsAndNeuralSystems/catchaMouse16
+- doi: 10.1103/physrevx.14.031021
+  title: Tracking the Distance to Criticality in Systems with Unknown Noise
+  authors: Brendan Harris, Leonardo L. Gollo, Ben D. Fulcher
+  venue: Physical Review X, vol. 14
+  year: '2024'
+  url: https://doi.org/10.1103/physrevx.14.031021
+  tag: article
+  citations: 17
+  percentile: 94
+  featured: true
+  code: https://github.com/brendanjohnharris/Criticality
+- doi: 10.1038/s42003-024-06228-z
+  title: 'Distributed and dynamical communication: a mechanism for flexible cortico-cortical
+    interactions and its functional roles in visual attention'
+  authors: Shencong Ni, Brendan Harris, Pulin Gong
+  venue: Communications Biology, vol. 7
+  year: '2024'
+  url: https://doi.org/10.1038/s42003-024-06228-z
+  tag: article
+  citations: 6
+  percentile: 90
+  featured: false
+- doi: 10.1109/jlt.2021.3072504
+  title: Approximate Modal Cut-Off Wavelengths and the V-Parameter for M-type Optical
+    Fibers and Its Novel Applications
+  authors: Deepak Jain, Mark George, Brendan Harris, Simon Fleming
+  venue: Journal of Lightwave Technology, vol. 39, pp. 4478-4488
+  year: '2021'
+  url: https://doi.org/10.1109/jlt.2021.3072504
+  tag: article
+  citations: 8
+  percentile: 90
+  featured: false

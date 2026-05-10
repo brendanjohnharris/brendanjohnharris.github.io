@@ -1,0 +1,81 @@
+{{/* Emits CSS variables from data/colors.yaml (synced from Fathom.jl/test/colors.yaml in CI). */}}
+{{- $c := .Site.Data.colors -}}
+{{- $bathypelagic  := index $c "bathypelagic" -}}
+{{- $abyad         := index $c "abyad" -}}
+{{- $mesopelagic   := index $c "mesopelagic" -}}
+{{- $bermejo       := index $c "bermejo" -}}
+{{- $chernoe       := index $c "chernoe" -}}
+{{- $abyssopelagic := index $c "abyssopelagic" -}}
+{{- $qinghai       := index $c "qinghai" -}}
+{{- $ianthina      := index $c "ianthina" -}}
+{{- $seohae        := index $c "seohae" -}}
+{{- $baikal        := index $c "baikal" -}}
+
+{{- /* Light scheme */ -}}
+{{- $light := dict
+  "paper"    "#f5f1e8"
+  "vellum"   (index $abyad        "lighter" | default "#F5F5F5")
+  "ink"      (index $chernoe      "dark"    | default "#11141C")
+  "graphite" (index $bathypelagic "base"    | default "#023653")
+  "ash"      (index $abyad        "dark"    | default "#959595")
+  "rule"     (index $abyad        "light"   | default "#D4D4D4")
+  "accent"   (index $mesopelagic  "base"    | default "#007878")
+  "accent-2" (index $bermejo      "base"    | default "#F93D53")
+  "tag-preprint" (index $abyad        "dark"  | default "#959595")
+  "tag-featured" (index $bermejo      "base"  | default "#F93D53")
+  "tag-doi"      (index $mesopelagic  "base"  | default "#007878")
+  "tag-pdf"      (index $seohae       "darker"| default "#BE6800")
+  "tag-code"     (index $ianthina     "darker"| default "#7C3C99")
+  "tint-baikal"  (index $baikal       "darker"| default "#3262BA")
+  "tint-qinghai" (index $qinghai      "darker"| default "#4B7F26")
+-}}
+
+{{- /* Dark scheme — paper stays cooler-toned (no warm cream in dark mode) */ -}}
+{{- $dark := dict
+  "paper"    (index $chernoe     "base"    | default "#282C34")
+  "vellum"   (index $chernoe     "lighter"  | default "#010306")
+  "ink"      (index $abyad       "lighter" | default "#F5F5F5")
+  "graphite" (index $abyad       "light"   | default "#D4D4D4")
+  "ash"      (index $abyad       "base"    | default "#B4B4B4")
+  "rule"     (index $chernoe     "light"   | default "#42464D")
+  "accent"   (index $mesopelagic "light"   | default "#4D9393")
+  "accent-2" (index $bermejo     "light"   | default "#FF787E")
+  "tag-preprint" (index $abyad       "base"  | default "#B4B4B4")
+  "tag-featured" (index $bermejo     "light" | default "#FF787E")
+  "tag-doi"      (index $mesopelagic "light" | default "#4D9393")
+  "tag-pdf"      (index $seohae      "base"  | default "#FFA829")
+  "tag-code"     (index $ianthina    "light" | default "#D3A1EC")
+  "tint-baikal"  (index $baikal      "light" | default "#98C1FF")
+  "tint-qinghai" (index $qinghai     "light" | default "#AEDA97")
+-}}
+
+{{ define "emit" }}
+  --paper:    {{ index . "paper" }};
+  --vellum:   {{ index . "vellum" }};
+  --ink:      {{ index . "ink" }};
+  --graphite: {{ index . "graphite" }};
+  --ash:      {{ index . "ash" }};
+  --rule:     {{ index . "rule" }};
+  --accent:   {{ index . "accent" }};
+  --accent-2: {{ index . "accent-2" }};
+  --tag-preprint: {{ index . "tag-preprint" }};
+  --tag-featured: {{ index . "tag-featured" }};
+  --tag-doi:      {{ index . "tag-doi" }};
+  --tag-pdf:      {{ index . "tag-pdf" }};
+  --tag-code:     {{ index . "tag-code" }};
+  --tint-baikal:  {{ index . "tint-baikal" }};
+  --tint-qinghai: {{ index . "tint-qinghai" }};
+{{ end }}
+
+:root {
+  color-scheme: light dark;
+  {{ template "emit" $light }}
+}
+:root[data-theme="dark"] {
+  {{ template "emit" $dark }}
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    {{ template "emit" $dark }}
+  }
+}

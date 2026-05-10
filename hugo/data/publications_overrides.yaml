@@ -1,0 +1,13 @@
+# Per-DOI overrides for fetch_publications.py.
+# Code links come from CurriculumVitae/theBibliography.bib (url = {github.com/...}); not here.
+# Use this file for: skip (drop entry), featured (homepage), pdf (manual link).
+
+"10.1007/s10827-022-00841-9":
+  skip: true  # CNS 2022 conference proceedings supplement (not a paper)
+"10.1364/fio.2020.fm4d.2":
+  skip: true  # FiO 2020 conference abstract (superseded by JLT paper)
+
+"10.1103/physrevx.14.031021":
+  featured: true
+"10.1038/s41467-026-68893-4":
+  featured: true

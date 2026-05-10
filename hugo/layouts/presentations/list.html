@@ -1,0 +1,44 @@
+{{ define "main" }}
+{{- $talks := .Site.Data.presentations -}}
+<div class="page-head">
+  <h1>Presentations</h1>
+  <div class="meta">{{ len $talks }} talks &amp; posters · click to embed</div>
+</div>
+<div class="talks">
+  {{ range $i, $t := $talks }}
+  <article class="talk" data-idx="{{ $i }}">
+    <div class="d">{{ $t.date }}</div>
+    <div class="body">
+      <h3 class="t">{{ $t.title }}</h3>
+      <div class="v"><span class="kind">{{ $t.kind }}</span>{{ $t.venue }}</div>
+      {{ with $t.note }}<div class="note">{{ . }}</div>{{ end }}
+    </div>
+    <div class="open">[ {{ $t.embed }} ]</div>
+  </article>
+  <div class="embed-frame" data-frame="{{ $i }}" hidden>
+    <div class="stage">
+      <div class="fake-slide">
+        <div class="st">Slide 1 / 24</div>
+        <div class="sh">{{ $t.title }}</div>
+        <div class="sf">B. Harris · {{ $t.venue }}</div>
+      </div>
+    </div>
+    <div class="meta">
+      <span>{{ if eq $t.embed "slidev" }}slidev iframe — hosted url{{ else }}pdf — embedded{{ end }}</span>
+      <a href="#" rel="noreferrer">open in new tab ↗</a>
+    </div>
+  </div>
+  {{ end }}
+</div>
+<script>
+  document.querySelectorAll('.talk').forEach(el => {
+    el.addEventListener('click', () => {
+      const idx = el.dataset.idx;
+      const frame = document.querySelector(`.embed-frame[data-frame="${idx}"]`);
+      const open = el.classList.toggle('expanded');
+      el.querySelector('.open').textContent = open ? '[ close ]' : `[ ${frame.querySelector('.meta span').textContent.startsWith('slidev') ? 'slidev' : 'pdf'} ]`;
+      frame.hidden = !open;
+    });
+  });
+</script>
+{{ end }}

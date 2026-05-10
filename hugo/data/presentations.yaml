@@ -1,0 +1,68 @@
+- date: Apr 2026
+  venue: Maths in the Brain
+  kind: Talk
+  title: Anomalous dynamics in the working regime of the visual cortex
+  note: "Prize: Best ECR talk"
+  embed: pdf
+
+- date: Jun 2025
+  venue: OHBM 2025, Brisbane
+  kind: Poster
+  title: Nested spatiotemporal dynamics organize hierarchical processing in the mouse visual cortex
+  note: "#2072"
+  embed: pdf
+
+- date: Jun 2025
+  venue: EPC/APCV 2025, UNSW
+  kind: Talk
+  title: Spatiotemporal theta–gamma waves organize hierarchical processing in the mouse visual cortex
+  embed: slidev
+
+- date: May 2025
+  venue: CNIR / IBS, Republic of Korea
+  kind: Invited talk
+  title: Nested spatiotemporal θ–γ waves organize hierarchical visual processing
+  embed: slidev
+
+- date: Mar 2025
+  venue: COSYNE 2025, Montreal
+  kind: Poster
+  title: Tracking the distance to criticality across the mouse visual hierarchy
+  note: "#1–117"
+  embed: pdf
+
+- date: Feb 2025
+  venue: NeuroEng 2025, Melbourne
+  kind: Talk
+  title: Nested spatiotemporal theta–gamma waves organize hierarchical visual processing
+  embed: slidev
+
+- date: Oct 2023
+  venue: "MIP:Lab, Geneva"
+  kind: Invited talk
+  title: Burst-based inter-areal neural communication
+  embed: slidev
+
+- date: Jul 2023
+  venue: Cognitive Neuroscience Hub, Melbourne
+  kind: Invited talk
+  title: Burst-based inter-areal neural communication
+  embed: slidev
+
+- date: Jan 2023
+  venue: C3-2023, Heron Island
+  kind: Workshop talk
+  title: Burst-based inter-areal neural communication
+  embed: pdf
+
+- date: Oct 2022
+  venue: Yale Medical School
+  kind: Invited talk
+  title: Feature-based analysis of neural time series
+  embed: slidev
+
+- date: Jul 2022
+  venue: CNS*2022, Melbourne
+  kind: Poster
+  title: Summarizing non-stationarity in spatio-temporal neural data
+  embed: pdf

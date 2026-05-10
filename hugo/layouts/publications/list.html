@@ -1,0 +1,30 @@
+{{ define "main" }}
+{{- $pubs := .Site.Data.publications -}}
+{{- $me := "Brendan Harris" -}}
+<div class="page-head">
+  <h1>Publications &amp; preprints</h1>
+  <div class="meta">{{ len $pubs }} entries · ORCID {{ .Site.Data.identity.orcid }}</div>
+</div>
+<div class="pub-list">
+  {{ range $i, $p := $pubs }}
+  <article class="pub">
+    <div class="y">{{ $p.year }}</div>
+    <div class="body">
+      <h3 class="title"><a href="{{ $p.url }}" rel="noreferrer">{{ $p.title }}</a></h3>
+      <div class="authors">{{ $p.authors | replaceRE $me (printf "<b>%s</b>" $me) | safeHTML }}</div>
+      <div class="venue">{{ $p.venue }}</div>
+      <div class="tags">
+        {{ if eq $p.tag "preprint" }}<span class="tag t-preprint">preprint</span>{{ end }}
+        {{ with $p.doi }}<a class="tag t-doi" href="https://doi.org/{{ . }}" rel="noreferrer">doi</a>{{ end }}
+        {{ with $p.pdf }}<a class="tag t-pdf" href="{{ . }}" rel="noreferrer">pdf</a>{{ end }}
+        {{ with $p.code }}<a class="tag t-code" href="{{ . }}" rel="noreferrer">code</a>{{ end }}
+      </div>
+    </div>
+    <div class="metrics">
+      {{ if gt ($p.citations | default 0) 0 }}<a class="m" href="https://scholar.google.com/scholar?q={{ $p.doi }}" rel="noreferrer" title="Lower bound from OpenAlex + Semantic Scholar; click for Google Scholar"><span class="v">{{ $p.citations }}+</span> <span class="l">{{ if eq $p.citations 1 }}cite{{ else }}cites{{ end }}</span></a>{{ end }}
+      {{ with $p.percentile }}<div class="m" title="Citation percentile in field/year (OpenAlex)"><span class="v">top {{ sub 100 . }}%</span></div>{{ end }}
+    </div>
+  </article>
+  {{ end }}
+</div>
+{{ end }}

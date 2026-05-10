@@ -1,0 +1,55 @@
+baseURL = "https://brendanjohnharris.github.io/"
+languageCode = "en-us"
+title = "Brendan Harris"
+enableEmoji = false
+enableRobotsTXT = true
+enableGitInfo = true
+
+[params]
+  description = "Postdoctoral Research Associate, Complex Systems Group, The University of Sydney"
+  fontsHref = "https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300..700;1,8..60,300..700&family=Source+Sans+3:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+  googleAnalytics = "G-PLACEHOLDER"
+
+[markup.goldmark.renderer]
+  unsafe = true
+
+[module]
+  [[module.mounts]]
+    source = "assets"
+    target = "assets"
+  [[module.mounts]]
+    source = "content"
+    target = "content"
+  [[module.mounts]]
+    source = "data"
+    target = "data"
+  [[module.mounts]]
+    source = "layouts"
+    target = "layouts"
+  [[module.mounts]]
+    source = "static"
+    target = "static"
+  [[module.mounts]]
+    source = "../CurriculumVitae/main.pdf"
+    target = "static/cv/main.pdf"
+
+[[menu.main]]
+  name   = "Home"
+  url    = "/"
+  weight = 10
+  [menu.main.params]
+    num = "01"
+
+[[menu.main]]
+  name   = "Publications"
+  url    = "/publications/"
+  weight = 20
+  [menu.main.params]
+    num = "02"
+
+[[menu.main]]
+  name   = "Curriculum vitæ"
+  url    = "/cv/"
+  weight = 30
+  [menu.main.params]
+    num = "03"

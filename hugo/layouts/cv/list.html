@@ -1,0 +1,16 @@
+{{ define "main" }}
+<div class="page-head">
+  <h1>Curriculum vitæ</h1>
+  <div class="meta">last build: {{ now.Format "2006" }} · LaTeX</div>
+</div>
+<div class="cv-wrap">
+  <div class="cv-bar">
+    <a href="/cv/main.pdf" target="_blank" rel="noopener noreferrer">↓ download pdf</a>
+    <a href="/cv/main.pdf" target="_blank" rel="noopener noreferrer">print view</a>
+    <a class="src" href="https://github.com/{{ .Site.Data.identity.github }}/CurriculumVitae" target="_blank" rel="noopener noreferrer">github/{{ .Site.Data.identity.github }}/CurriculumVitae</a>
+  </div>
+  <div class="cv-frame">
+    <iframe src="/cv/main.pdf#view=FitH&toolbar=0&navpanes=0&pagemode=none" title="CV"></iframe>
+  </div>
+</div>
+{{ end }}

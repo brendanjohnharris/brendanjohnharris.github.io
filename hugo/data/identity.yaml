@@ -1,0 +1,26 @@
+name: Brendan Harris
+role: Postdoctoral Research Associate
+affiliation: Complex Systems Group, School of Physics, The University of Sydney
+location: Sydney, Australia
+email: brendan.harris@sydney.edu.au
+orcid: 0000-0003-3412-4186
+github: brendanjohnharris
+scholar: https://scholar.google.com/citations?user=XYfQ92sAAAAJ&hl=en
+bluesky: "@brendanjohnharris"
+twitter: brendanjharris
+blurb: >
+  I investigate how collective neural dynamics implement computation and
+  communication in the brain. My work combines statistical physics, dynamical
+  systems theory, and large-scale electrophysiology to build multi-level
+  models of cortical function.
+
+interests:
+  - heading: Systems neuroscience
+    glyph: brain
+    tint: baikal
+  - heading: Statistical physics
+    glyph: physics
+    tint: bermejo
+  - heading: Open scientific software
+    glyph: code
+    tint: qinghai
