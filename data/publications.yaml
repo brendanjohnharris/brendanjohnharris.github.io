@@ -10,11 +10,11 @@
   percentile: null
   featured: true
   code: https://github.com/brendanjohnharris/SpatiotemporalMotifs.jl
-  image: img/spatiotemporal_motifs.webp
+  image: img/spatiotemporal_motifs-600.webp
 - doi: 10.52294/001c.140433
   title: Canonical time-series features for characterizing biologically informative
     dynamical patterns in fMRI
-  authors: Imran Alam, Brendan Harris, Patrick Cahill, Oliver Cliﬀ, Marija Markicevic,
+  authors: Imran Alam, Brendan Harris, Patrick Cahill, Oliver Cliff, Marija Markicevic,
     Valerio Zerbi, Ben D. Fulcher
   venue: Aperture Neuro, vol. 5
   year: '2025'
@@ -35,7 +35,7 @@
   percentile: 94
   featured: true
   code: https://github.com/brendanjohnharris/Criticality
-  image: img/criticality.webp
+  image: img/criticality-480.webp
 - doi: 10.1038/s42003-024-06228-z
   title: 'Distributed and dynamical communication: a mechanism for flexible cortico-cortical
     interactions and its functional roles in visual attention'

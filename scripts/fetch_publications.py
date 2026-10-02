@@ -18,6 +18,7 @@ import json
 import os
 import sys
 import time
+import unicodedata
 from pathlib import Path
 from urllib.parse import quote
 
@@ -132,7 +133,7 @@ def format_authors(crossref: dict, openalex: dict) -> str:
                 parts.append(f"{given} {family}")
             elif family:
                 parts.append(family)
-        return ", ".join(parts)
+        return unicodedata.normalize("NFKC", ", ".join(parts))
     oa_authors = openalex.get("authorships") or []
     return ", ".join(a.get("author", {}).get("display_name", "") for a in oa_authors).strip(", ")
 
@@ -186,6 +187,8 @@ def main() -> int:
 
         issued = (cr.get("issued") or {}).get("date-parts") or [[None]]
         year = issued[0][0] if issued and issued[0] else oa.get("publication_year")
+        date = issued[0] if issued and issued[0] and issued[0][0] else \
+            [int(x) for x in (oa.get("publication_date") or "0").split("-")]
 
         entry = {
             "doi": doi,
@@ -205,9 +208,9 @@ def main() -> int:
             entry["pdf"] = ov["pdf"]
         if "image" in ov:
             entry["image"] = ov["image"]
-        entries.append(entry)
+        entries.append(((date + [0, 0])[:3], entry))  # [y, m, d]; Crossref may omit m/d
 
-    entries.sort(key=lambda e: (e["year"] or "0000", e["title"]), reverse=True)
+    entries = [e for _, e in sorted(entries, key=lambda t: t[0], reverse=True)]
 
     OUT.write_text(yaml.safe_dump(entries, sort_keys=False, allow_unicode=True))
     print(f"wrote {len(entries)} entries to {OUT}", file=sys.stderr)

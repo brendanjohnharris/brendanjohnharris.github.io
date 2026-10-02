@@ -4,6 +4,8 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+  repository_dispatch:
+    types: [update-cv-submodule]
 
 permissions:
   contents: read
@@ -20,7 +22,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          submodules: recursive   # CurriculumVitae lives under static/cv
+          submodules: recursive   # CurriculumVitae/main.pdf is mounted at /cv/main.pdf
           fetch-depth: 0          # full history for Hugo's enableGitInfo
 
       - name: Update CurriculumVitae submodule to latest
@@ -43,7 +45,7 @@ jobs:
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
         with:
-          hugo-version: latest
+          hugo-version: 0.167.0  # latest deprecates languageCode and .Site.Data
           extended: true
 
       - name: Configure Pages
@@ -51,7 +53,9 @@ jobs:
         uses: actions/configure-pages@v5
 
       - name: Build
-        run: hugo --minify --baseURL "${{ steps.pages.outputs.base_url }}/"
+        run: |
+          export HUGO_PARAMS_CVUPDATED=$(git -C CurriculumVitae log -1 --format=%cs)
+          hugo --minify --baseURL "${{ steps.pages.outputs.base_url }}/"
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

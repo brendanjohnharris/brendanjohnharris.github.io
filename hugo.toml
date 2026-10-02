@@ -4,6 +4,7 @@ title = "Brendan Harris"
 enableEmoji = false
 enableRobotsTXT = true
 enableGitInfo = true
+disableKinds = ["taxonomy", "term", "rss"]
 
 [params]
   description = "Postdoctoral Research Associate, Complex Systems Group, The University of Sydney"
@@ -29,6 +30,7 @@ enableGitInfo = true
   [[module.mounts]]
     source = "static"
     target = "static"
+    excludeFiles = ["img/me.png", "img/me.avif", "img/icon-512.png", "img/criticality.webp", "img/me.webp", "img/spatiotemporal_motifs.webp"]  # full-size originals
   [[module.mounts]]
     source = "CurriculumVitae/main.pdf"
     target = "static/cv/main.pdf"
