@@ -2,7 +2,7 @@
   title: Nested spatiotemporal theta–gamma waves organize hierarchical processing
     across the mouse visual cortex
   authors: Brendan Harris, Pulin Gong
-  venue: Nature Communications, vol. 17
+  venue: Nature Communications, vol. 17, art. 2629
   year: '2026'
   url: https://doi.org/10.1038/s41467-026-68893-4
   tag: article
@@ -27,7 +27,7 @@
 - doi: 10.1103/physrevx.14.031021
   title: Tracking the Distance to Criticality in Systems with Unknown Noise
   authors: Brendan Harris, Leonardo L. Gollo, Ben D. Fulcher
-  venue: Physical Review X, vol. 14
+  venue: Physical Review X, vol. 14, art. 031021
   year: '2024'
   url: https://doi.org/10.1103/physrevx.14.031021
   tag: article
@@ -36,11 +36,13 @@
   featured: true
   code: https://github.com/brendanjohnharris/Criticality
   image: img/criticality-480.webp
+  news: https://theconversation.com/crashes-blackouts-and-climate-tipping-points-how-can-we-tell-when-a-system-is-close-to-the-edge-236683
+  video: https://www.youtube.com/watch?v=4_rIMEl-pcU
 - doi: 10.1038/s42003-024-06228-z
   title: 'Distributed and dynamical communication: a mechanism for flexible cortico-cortical
     interactions and its functional roles in visual attention'
   authors: Shencong Ni, Brendan Harris, Pulin Gong
-  venue: Communications Biology, vol. 7
+  venue: Communications Biology, vol. 7, art. 550
   year: '2024'
   url: https://doi.org/10.1038/s42003-024-06228-z
   tag: article

@@ -35,14 +35,11 @@
         <div class="body">
           <h3 class="title"><a href="{{ $p.url }}" rel="noreferrer">{{ $p.title }}</a></h3>
           <div class="authors">{{ $p.authors | replaceRE $me (printf "<b>%s</b>" $me) | safeHTML }}</div>
-          <div class="venue">{{ $p.venue }}</div>
+          <div class="venue">{{ $p.venue | htmlEscape | replaceRE `^(.*?)((, vol\.|, art\.|, pp\.).*)?$` "<b>$1</b>$2" | safeHTML }}</div>
         </div>
         {{ with $p.image }}<a class="featured-img" href="{{ $p.url }}" rel="noreferrer"><img src="{{ . | relURL }}" alt="" loading="lazy" /></a>{{ end }}
         <div class="tags tags-stack">
-          {{ if eq $p.tag "preprint" }}<span class="tag t-preprint">preprint</span>{{ end }}
-          {{ with $p.doi }}<a class="tag t-doi" href="https://doi.org/{{ . }}" rel="noreferrer">doi</a>{{ end }}
-          {{ with $p.pdf }}<a class="tag t-pdf" href="{{ . }}" rel="noreferrer">pdf</a>{{ end }}
-          {{ with $p.code }}<a class="tag t-code" href="{{ . }}" rel="noreferrer">code</a>{{ end }}
+          {{ partial "pub-tags.html" $p }}
         </div>
       </article>
       {{ end }}

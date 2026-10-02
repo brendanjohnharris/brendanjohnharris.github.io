@@ -51,6 +51,8 @@ The `presentations` and `software` sections have layouts and data but are disabl
   featured: true                    # show on the landing page
   image: img/criticality-480.webp   # landing-page thumbnail
   pdf: https://...                  # adds a pdf tag
+  news: https://...                 # adds a news tag
+  video: https://...                # adds a video tag
   skip: true                        # drop the entry
 ```
 

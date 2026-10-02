@@ -1,0 +1,7 @@
+{{- $p := . -}}
+{{ if eq $p.tag "preprint" }}<span class="tag t-preprint">preprint</span>{{ end }}
+{{ with $p.doi }}<a class="tag t-doi" href="https://doi.org/{{ . }}" rel="noreferrer">doi</a>{{ end }}
+{{ with $p.pdf }}<a class="tag t-pdf" href="{{ . }}" rel="noreferrer">pdf</a>{{ end }}
+{{ with $p.code }}<a class="tag t-code" href="{{ . }}" rel="noreferrer">code</a>{{ end }}
+{{ with $p.news }}<a class="tag t-news" href="{{ . }}" rel="noreferrer">news</a>{{ end }}
+{{ with $p.video }}<a class="tag t-video" href="{{ . }}" rel="noreferrer">video</a>{{ end }}

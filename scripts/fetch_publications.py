@@ -12,6 +12,8 @@ Manual overrides live in data/publications_overrides.yaml, keyed by DOI:
     featured: true
     skip: false
     pdf: "https://..."
+    news: "https://..."
+    video: "https://..."
 """
 from __future__ import annotations
 import json
@@ -142,8 +144,9 @@ def format_venue(crossref: dict, openalex: dict) -> str:
     container = crossref.get("container-title") or []
     name = container[0] if container else ""
     volume = crossref.get("volume", "")
-    pages = crossref.get("page", "")
-    bits = [b for b in [name, f"vol. {volume}" if volume else "", f"pp. {pages}" if pages else ""] if b]
+    pages, article = crossref.get("page", ""), crossref.get("article-number", "")
+    loc = f"pp. {pages}" if pages else f"art. {article}" if article else ""  # most journals now use article numbers
+    bits = [b for b in [name, f"vol. {volume}" if volume else "", loc] if b]
     if bits:
         return ", ".join(bits)
     src = openalex.get("primary_location", {}).get("source") or {}
@@ -204,10 +207,7 @@ def main() -> int:
         }
         if bib_code.get(doi):
             entry["code"] = bib_code[doi]
-        if "pdf" in ov:
-            entry["pdf"] = ov["pdf"]
-        if "image" in ov:
-            entry["image"] = ov["image"]
+        entry.update({k: ov[k] for k in ("pdf", "image", "news", "video") if k in ov})
         entries.append(((date + [0, 0])[:3], entry))  # [y, m, d]; Crossref may omit m/d
 
     entries = [e for _, e in sorted(entries, key=lambda t: t[0], reverse=True)]
