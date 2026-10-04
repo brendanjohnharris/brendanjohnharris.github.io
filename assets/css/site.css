@@ -403,7 +403,7 @@ main {
   position: relative;
   align-self: stretch;
   border: none;
-  min-height: 10rem;  /* the row is otherwise only as tall as its text; figure panels need more */
+  min-height: 12.5rem;  /* the row is otherwise only as tall as its text; figure panels need more */
   display: flex;
   align-items: center;
   justify-content: center;
