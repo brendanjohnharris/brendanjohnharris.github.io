@@ -48,8 +48,11 @@ The `presentations` and `software` sections have layouts and data but are disabl
 
 ```yaml
 "10.1103/physrevx.14.031021":
+  add: true                         # include although ORCID does not list it
   featured: true                    # show on the landing page
   image: img/criticality-480.webp   # landing-page thumbnail
+  image_dark: img/...               # optional dark-theme variant of image
+  code: https://...                 # code tag; overrides the CV bibliography
   pdf: https://...                  # adds a pdf tag
   news: https://...                 # adds a news tag
   video: https://...                # adds a video tag

@@ -13,6 +13,7 @@ Manual overrides live in data/publications_overrides.yaml, keyed by DOI:
     skip: false
     pdf: "https://..."
     news: "https://..."
+    add: true   # include although ORCID does not list it
     video: "https://..."
 """
 from __future__ import annotations
@@ -141,6 +142,9 @@ def format_authors(crossref: dict, openalex: dict) -> str:
 
 
 def format_venue(crossref: dict, openalex: dict) -> str:
+    doi = (openalex.get("doi") or "").lower()
+    if "/arxiv." in doi:  # DataCite DOI; no Crossref record
+        return "arXiv:" + doi.split("/arxiv.", 1)[1]
     container = crossref.get("container-title") or []
     name = container[0] if container else ""
     volume = crossref.get("volume", "")
@@ -169,6 +173,7 @@ def main() -> int:
 
     print(f"fetching ORCID works for {ORCID} ...", file=sys.stderr)
     dois = fetch_orcid_dois(ORCID)
+    dois += [d for d, ov in overrides.items() if (ov or {}).get("add") and d not in dois]  # not (yet) on ORCID
     print(f"  {len(dois)} DOIs", file=sys.stderr)
 
     entries = []
@@ -189,9 +194,9 @@ def main() -> int:
         title = (title_list[0] if title_list else oa.get("title") or doi).strip()
 
         issued = (cr.get("issued") or {}).get("date-parts") or [[None]]
-        year = issued[0][0] if issued and issued[0] else oa.get("publication_year")
         date = issued[0] if issued and issued[0] and issued[0][0] else \
             [int(x) for x in (oa.get("publication_date") or "0").split("-")]
+        year = date[0] or oa.get("publication_year")
 
         entry = {
             "doi": doi,
@@ -207,7 +212,7 @@ def main() -> int:
         }
         if bib_code.get(doi):
             entry["code"] = bib_code[doi]
-        entry.update({k: ov[k] for k in ("pdf", "image", "news", "video") if k in ov})
+        entry.update({k: ov[k] for k in ("code", "pdf", "image", "image_dark", "news", "video") if k in ov})
         entries.append(((date + [0, 0])[:3], entry))  # [y, m, d]; Crossref may omit m/d
 
     entries = [e for _, e in sorted(entries, key=lambda t: t[0], reverse=True)]

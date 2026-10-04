@@ -1,6 +1,6 @@
 # Per-DOI overrides for fetch_publications.py.
 # Code links come from CurriculumVitae/theBibliography.bib (url = {github.com/...}); not here.
-# Use this file for: skip (drop entry), featured (homepage), pdf, news, video, image (homepage card).
+# Use this file for: add (not on ORCID), skip (drop entry), featured (homepage), code, pdf, news, video, image (homepage card), image_dark (dark-theme variant).
 
 "10.1007/s10827-022-00841-9":
   skip: true  # CNS 2022 conference proceedings supplement (not a paper)
@@ -15,3 +15,10 @@
 "10.1038/s41467-026-68893-4":
   featured: true
   image: img/spatiotemporal_motifs-600.webp
+
+"10.48550/arxiv.2609.37355":
+  add: true  # arXiv preprint, not yet on ORCID
+  featured: true
+  code: https://github.com/brendanjohnharris/WorkingRegime.jl
+  image: img/input_field_light-480.webp  # WorkingRegime.jl scripts/Cover_input_field.jl
+  image_dark: img/input_field_dark-480.webp

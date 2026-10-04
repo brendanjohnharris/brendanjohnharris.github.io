@@ -37,7 +37,7 @@
           <div class="authors">{{ $p.authors | replaceRE $me (printf "<b>%s</b>" $me) | safeHTML }}</div>
           <div class="venue">{{ $p.venue | htmlEscape | replaceRE `^(.*?)((, vol\.|, art\.|, pp\.).*)?$` "<b>$1</b>$2" | safeHTML }}</div>
         </div>
-        {{ with $p.image }}<a class="featured-img" href="{{ $p.url }}" rel="noreferrer"><img src="{{ . | relURL }}" alt="" loading="lazy" /></a>{{ end }}
+        {{ with $p.image }}<a class="featured-img" href="{{ $p.url }}" rel="noreferrer"><img src="{{ . | relURL }}"{{ with $p.image_dark }} class="img-light"{{ end }} alt="" loading="lazy" />{{ with $p.image_dark }}<img class="img-dark" src="{{ . | relURL }}" alt="" loading="lazy" />{{ end }}</a>{{ else }}<span></span>{{ end }}
         <div class="tags tags-stack">
           {{ partial "pub-tags.html" $p }}
         </div>

@@ -1,3 +1,17 @@
+- doi: 10.48550/arxiv.2609.37355
+  title: An adaptive fractional state links circuit mechanisms to cortical dynamics
+    across the visual hierarchy
+  authors: Brendan Harris, Pulin Gong
+  venue: arXiv:2609.37355
+  year: '2026'
+  url: https://doi.org/10.48550/arxiv.2609.37355
+  tag: preprint
+  citations: 0
+  percentile: null
+  featured: true
+  code: https://github.com/brendanjohnharris/WorkingRegime.jl
+  image: img/input_field_light-480.webp
+  image_dark: img/input_field_dark-480.webp
 - doi: 10.1038/s41467-026-68893-4
   title: Nested spatiotemporal theta–gamma waves organize hierarchical processing
     across the mouse visual cortex
@@ -6,8 +20,8 @@
   year: '2026'
   url: https://doi.org/10.1038/s41467-026-68893-4
   tag: article
-  citations: 1
-  percentile: null
+  citations: 5
+  percentile: 97
   featured: true
   code: https://github.com/brendanjohnharris/SpatiotemporalMotifs.jl
   image: img/spatiotemporal_motifs-600.webp
@@ -31,7 +45,7 @@
   year: '2024'
   url: https://doi.org/10.1103/physrevx.14.031021
   tag: article
-  citations: 17
+  citations: 21
   percentile: 94
   featured: true
   code: https://github.com/brendanjohnharris/Criticality
@@ -46,8 +60,8 @@
   year: '2024'
   url: https://doi.org/10.1038/s42003-024-06228-z
   tag: article
-  citations: 6
-  percentile: 90
+  citations: 9
+  percentile: 89
   featured: false
 - doi: 10.1109/jlt.2021.3072504
   title: Approximate Modal Cut-Off Wavelengths and the V-Parameter for M-type Optical
@@ -57,6 +71,6 @@
   year: '2021'
   url: https://doi.org/10.1109/jlt.2021.3072504
   tag: article
-  citations: 8
-  percentile: 90
+  citations: 9
+  percentile: 89
   featured: false
